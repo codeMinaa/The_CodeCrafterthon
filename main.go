@@ -28,10 +28,27 @@ beginning:
 		fmt.Println("bye bye!")
 		return
 	}
-	fmt.Println("Enter a Number")
-	fmt.Scanln(&a)
-	fmt.Println("Enter Second Number")
-	fmt.Scanln(&b)
+	for {
+		fmt.Println("Enter first Number")
+		_, error := fmt.Scanln(&a)
+		if error != nil {
+			fmt.Println("Invalid input: ")
+			fmt.Println(error)
+			continue
+		}
+		break
+	}
+
+	for {
+		fmt.Println("Enter second number Number")
+		_, error2 := fmt.Scanln(&b)
+		if error2 != nil {
+			fmt.Println("Invalid input: ")
+			fmt.Println(error2)
+			continue
+		}
+		break
+	}
 
 	switch choice {
 	case "1":
@@ -50,9 +67,16 @@ beginning:
 		goto beginning
 
 	case "4":
-
-		fmt.Println("your result is:", divide(a, b))
+		if b != 0 {
+			fmt.Println("your result is:", divide(a, b))
+		}
+		if b == 0 {
+			fmt.Println("cannot divide by 0 :")
+		}
 		goto beginning
+	default:
+		fmt.Println("unknown operator")
 
 	}
+
 }
