@@ -1,0 +1,42 @@
+// ═══════════════════════════════════════════
+  // SQUAD PIPELINE CONTRACT
+  // Squad: [The Pointers]
+  // ───────────────────────────────────────────
+  // Input line types:
+  //   [list what your squad agreed on]
+  //
+  // Transformation rules (in order):
+  //   1. [Rule 1]
+  //   2. [Rule 2]
+  //   3. [Rule 3]
+  //   4. [Rule 4]
+  //   5. [Rule 5]
+  //
+  // Output format:
+  //   [Header: yes/no — exact text if yes]
+  //   [Line numbering format]
+  //   [Summary block: yes/no — fields if yes]
+  //
+  // Terminal summary fields:
+  //   [List what your squad agreed on]
+  // ═══════════════════════════════════════════
+
+package main
+import (
+	"fmt"
+	"strings"
+
+)
+func SpliteLines(text string)  [] string  {
+	return strings.Split(text, "\n")
+
+}
+func main () {
+	input := "Hello\nWorld\n\nGo"
+	lines := SpliteLines(input)
+	for i, line := range lines{
+			fmt.Printf("Line %d: %q\n", i, line)
+
+	}
+
+}
